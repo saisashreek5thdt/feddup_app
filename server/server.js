@@ -4,6 +4,8 @@ var db = require('./dbConfig/db')
 const app = express();
 const userRouter = require("./routes/user-routes");
 const feedbackRouter=require("./routes/feedback_routes")
+const morgan = require('morgan');
+
 var bodyParser=require("body-parser")
 
 app.use(bodyParser.json());
@@ -15,7 +17,8 @@ app.use(cors())
     res.header("Access-Control-Allow-Origin", "*")
     next()
   })
-  
+app.use(morgan('tiny'));
+
 app.use("/api/v1", userRouter);
 app.use("/api/v1", feedbackRouter);
 

@@ -17,7 +17,7 @@ const UserSchema = mongoose.Schema({
     type:String,
     required:true
   },
-  OS:{
+  os:{
     type:String,
     required:true
   },
