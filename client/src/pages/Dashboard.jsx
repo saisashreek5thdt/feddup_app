@@ -10,11 +10,10 @@ import feedbackEmoji3 from '../assets/images/feedbackEmoji-3.svg'
 import feedbackEmoji4 from '../assets/images/feedbackEmoji-4.svg'
 import feedbackEmoji5 from '../assets/images/feedbackEmoji-5.svg'
 import rangeslider from '../assets/images/rangeslider.svg'
-
-import slide from './Dashboard.module.css'
+import feedbacktextarea from '../assets/images/feedbacktextarea.svg'
 
 const Dashboard = () => {
-    const user = 'ganesh';
+    const user = 'null';
     const [feedbackform, setFeedbackForm] = useState(false)
     const [showfeedbackscreen, setShowFeedbackScreen] = useState(false)
     const rangeSliderClasses = {
@@ -104,20 +103,20 @@ const Dashboard = () => {
             </div>
             <input type="range" name="rating" id="rating" className={['w-full mt-5 px-2']} style={rangeSliderClasses} min='1' max='5' step="1" />
             <p className={['text-xs font-light mt-2 mb-3']}>Your precious feedback...</p>
-            <textarea name="" id="" cols="30" rows="6" className={['w-full border rounded']}></textarea>
+            <textarea name="" id="" cols="30" rows="7" maxLength="100" style={{autoFocus : 'none', resize : 'none'}} className={['w-full rounded px-10 font-light text-xs text-gray-500 tracking-wider leading-5 pt-5']} style={{background : `url(${feedbacktextarea}) no-repeat`, zIndex : '1000'}}></textarea>
             <div className={['flex']}>
-            <div className={['w-28 rounded mx-auto text-center sm:mt-8 md:mt-4 lg:mt-6 bg-yellow-500 text-white relative cursor-pointer']} style={{padding : '3px'}} onClick={() =>setFeedbackForm(!feedbackform)}>
+            <div className={['w-28 rounded mx-auto text-center sm:mt-8 md:mt-4 bg-yellow-500 text-white relative cursor-pointer']} style={{padding : '3px'}} onClick={() =>setFeedbackForm(!feedbackform)}>
              <button className={['text-xs font-light']} onClick={() => {
                  if(feedbackform) {
                      setFeedbackForm(!feedbackform)
                  }
                  setShowFeedbackScreen(!showfeedbackscreen)}
              }>Back</button>
-             <span className={['absolute text-yellow-500 -top-4 left-10']}><i class="fa fa-caret-up fa-2x" aria-hidden="true"></i></span>
+             <span className={['absolute text-yellow-500 -top-4 left-11']}><i class="fa fa-caret-up fa-2x" aria-hidden="true"></i></span>
              </div>
-             <div className={['w-28 rounded mx-auto text-center sm:mt-8 md:mt-4 lg:mt-6 bg-green-600 text-white relative cursor-pointer']} style={{padding : '3px'}} onClick={() =>setFeedbackForm(!feedbackform)}>
-             <button className={['text-xs font-light']}>Submit</button>
-             <span className={['absolute text-green-600 -top-4 left-10']}><i class="fa fa-caret-up fa-2x" aria-hidden="true"></i></span>
+             <div className={['w-28 rounded mx-auto text-center sm:mt-8 md:mt-4 bg-green-600 text-white relative cursor-pointer']} style={{padding : '3px'}}>
+             <button className={['text-xs font-light']} onClick={() => user ? alert('Feedback submitted') : alert('please login first')}>Submit</button>
+             <span className={['absolute text-green-600 -top-4 left-11']}><i class="fa fa-caret-up fa-2x" aria-hidden="true"></i></span>
              </div>
             </div>
         </div>

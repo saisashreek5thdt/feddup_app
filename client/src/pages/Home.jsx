@@ -3,17 +3,18 @@ import bg from "../assets/images/Home_bg_1.svg";
 import Logo from "../assets/images/Logo.svg";
 import HomeIllustration from "../assets/images/Home_illustration.svg";
 import HomeUser from "../assets/images/Home_user.svg";
+import {Link} from 'react-router-dom'
 
 const Home = () => {
   return (
     <div className={["relative w-screen"]}>
-      <img src={bg} alt="" className={[""]} />
+      <img src={bg} alt="" className={["h-screen w-screen object-cover"]} />
       <div className={["absolute top-0 left-0 right-0 py-12"]}>
         <div className={["flex w-10/12 mx-auto justify-between"]}>
           <img src={Logo} alt="" />
           <ul className={["flex align-center items-center"]}>
-            <li> <a href="#" className={['mx-3 font-light bg-white px-5 py-2 rounded rounded-full text-sm text-gray-500']}>SIGN UP</a> </li>
-            <li> <a href="#" className={['mx-3 font-light bg-white px-5 py-2 rounded rounded-full text-sm text-gray-500']}>SIGN UP</a> </li>
+            <li> <Link to="register" className={['mx-3 font-light bg-white px-5 py-2 rounded rounded-full text-sm text-gray-500']}>SIGN UP</Link> </li>
+            <li> <Link to="signin" className={['mx-3 font-light bg-white px-5 py-2 rounded rounded-full text-sm text-gray-500']}>SIGN IN</Link> </li>
             <li> <a href="#" className={['']}> <img src={HomeUser} alt="" /> </a> </li>
           </ul>
         </div>

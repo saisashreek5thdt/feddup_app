@@ -11,7 +11,7 @@ import emailicon from '../assets/images/email-icon.svg';
 import passwordicon from '../assets/images/password-icon.svg';
 import {Link} from 'react-router-dom'
 
-const Signin = ({history}) => {
+const Adminlogin = ({history}) => {
     return (
         <div>
             <div className={['flex justify-between absolute top-8 w-full px-24']}>
@@ -34,10 +34,10 @@ const Signin = ({history}) => {
                     <div className={['text-center mt-12']}>
                         <button className={['py-2 px-8 text-sm font-light bg-white border rounded-full']}>SIGN IN</button>
                     </div>
-                    <div className={['flex justify-center mt-4']} style={{zIndex : '10000'}}>
+                    {/* <div className={['flex justify-center mt-4']} style={{zIndex : '10000'}}>
                         <Link to="adminlogin"><button className={['py-2 px-8 mx-4 text-sm font-light text-white border rounded-full cursor-pointer']} onClick={() => console.log('admin')}>ADMIN</button></Link>
                         <Link to="dashboard"><button className={['py-2 px-8 mx-4 text-sm font-light text-white border rounded-full cursor-pointer']} onClick={() => history.push('dashboard')}>SKIP</button></Link>
-                    </div>
+                    </div> */}
                 </form>
             </div>
             <img src={loginbg} alt="" className={['-mt-16 absolute top-0 object-fit']} style={{zIndex: '-1'}} />
@@ -50,4 +50,4 @@ const Signin = ({history}) => {
     )
 }
 
-export default Signin
+export default Adminlogin
