@@ -29,6 +29,10 @@ const UserSchema = mongoose.Schema({
     type: String,
     maxlength:125,
     required: true
+  },
+  id:{
+    type: String,
+    required: true
   }
   },
   { timestamps: true }

@@ -6,13 +6,16 @@ const Feedbacks=require("../models/feedback")
 router.post("/feedback",
     async(req,res)=>{
       try{
-      const{fullName,
+      const{
+        fullName,
         ipAddress,
         os,
         network,
         browser,
         rating,
-        message}=req.body
+        message,
+        id
+      }=req.body
 
       feedback = new Feedbacks({
         fullName,
@@ -21,7 +24,8 @@ router.post("/feedback",
         network,
         browser,
         rating,
-        message
+        message,
+        id
     });
         await feedback.save()
               res.status(200).json({
@@ -35,7 +39,7 @@ router.post("/feedback",
     })
 
     // For User
-    // http://localhost:3030/api/feedback/:id?pageNo=1&size=10
+    // http://localhost:3030/api/v1/feedback/6107e2e84013b61f54205f47?pageNo=1&size=10
 
     router.get("/feedback/:id",
     async(req,res)=>{
@@ -49,7 +53,7 @@ router.post("/feedback",
         }
         let skip =size*(pageNo-1)
         let limit = size;
-        let feedbacks = await Feedbacks.findById(req.params.id).skip(skip).limit(limit)
+        let feedbacks = await Feedbacks.find({id:req.params.id}).skip(skip).limit(limit)
         res.json(feedbacks)
       }catch (err){
         console.log(err.message);
@@ -58,14 +62,15 @@ router.post("/feedback",
   })
 
   // For Admin
-  // http://localhost:3030/api/feedback/admin?pageNo=1&size=10
+  // http://localhost:3030/api/v1/admin/feedbacks?pageNo=1&size=10
 
-  router.get("/feedback/admin",
+  router.get("/admin/feedbacks",
     async(req,res)=>{
       var pageNo = parseInt(req.query.pageNo)
       var size = parseInt(req.query.size);
       try{
         let skip =size*(pageNo-1)
+        console.log(skip)
         let limit = size;
         let feedbacks = await Feedbacks.find({}).skip(skip).limit(limit)
         res.json({feedbacks})
