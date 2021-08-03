@@ -11,7 +11,7 @@ const Home = () => {
       <img src={bg} alt="" className={["h-screen w-screen object-cover"]} />
       <div className={["absolute top-0 left-0 right-0 py-12"]}>
         <div className={["flex w-10/12 mx-auto justify-between"]}>
-          <img src={Logo} alt="" />
+          <Link to="/"><img src={Logo} alt="" /></Link>
           <ul className={["flex align-center items-center"]}>
             <li> <Link to="register" className={['mx-3 font-light bg-white px-5 py-2 rounded rounded-full text-sm text-gray-500']}>SIGN UP</Link> </li>
             <li> <Link to="signin" className={['mx-3 font-light bg-white px-5 py-2 rounded rounded-full text-sm text-gray-500']}>SIGN IN</Link> </li>

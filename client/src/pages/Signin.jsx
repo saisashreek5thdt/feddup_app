@@ -14,7 +14,7 @@ import {Link} from 'react-router-dom'
 const Signin = ({history}) => {
     console.log(history)
     return (
-        <div>
+        <div className={['h-screen overflow-hidden']}>
             <div className={['flex justify-between absolute top-8 w-full px-24']}>
                 <img src={backicon} alt="" className={['transform sm:scale-75']} style={{zIndex: '1'}} onClick={() => history.goBack()} />
                 <Link to="/"><img src={Logo} alt="" className={['transform scale-90']} /></Link>
@@ -30,7 +30,7 @@ const Signin = ({history}) => {
                     </div>
                     <div className={['flex border xl:py-4 px-5 rounded rounded-full mb-10 bg-white opacity-80 sm:py-3 sm:mb-8']}>
                         <img src={passwordicon} alt="" className={['mr-5 transform scale-75']} />
-                        <input type="text" name="" id="" placeholder="Password" className={["bg-transparent w-full focus:outline-none border-0"]} />
+                        <input type="password" name="" id="" placeholder="Password" className={["bg-transparent w-full focus:outline-none border-0"]} />
                     </div>
                     <div className={['text-center mt-12']}>
                         <button className={['py-2 px-8 text-sm font-light bg-white border rounded-full']}>SIGN IN</button>
@@ -39,13 +39,14 @@ const Signin = ({history}) => {
                         <Link to="adminlogin"><button className={['sm:text-gray-600 py-2 px-8 mx-4 text-sm font-light xl:text-white border rounded-full cursor-pointer']} onClick={() => console.log('admin')}>ADMIN</button></Link>
                         <Link to="dashboard"><button className={['py-2 px-8 mx-4 sm:text-gray-600 text-sm font-light xl:text-white border rounded-full cursor-pointer']} onClick={() => history.push('dashboard')}>SKIP</button></Link>
                     </div>
+                    <Link to="/forgotpassword"> <p className={['text-white text-center mt-6']}>Forgot Password ? <span className={['text-gray-100']}>Click Here...</span> </p> </Link>
                 </form>
             </div>
-            <img src={loginbg} alt="" className={['-mt-16 absolute top-0 object-fit']} style={{zIndex: '-1'}} />
+            <img src={loginbg} alt="" className={['-mt-16 absolute top-0']} style={{zIndex: '-1'}} />
             <img src={RegisterLeftIcon} alt="" className={['absolute transform scale-90 -left-10 hidden xl:block']} style={{top : '100px', zIndex: '1'}} />
             <img src={loginrunnning} alt="" className={['absolute transform scale-90 right-32 hidden xl:block']} style={{top : '230px', zIndex: '0'}} />
             <div className={['flex justify-center']} style={{zIndex : '-1000'}}>
-                <img src={Logo} alt="" className={['xl:mt-32 sm:mt-12']} />
+                <img src={Logo} alt="" className={['xl:mt-24 sm:mt-12']} />
             </div>
         </div>
     )

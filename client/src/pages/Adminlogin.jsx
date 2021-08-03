@@ -16,7 +16,7 @@ const Adminlogin = ({history}) => {
         <div>
             <div className={['flex justify-between absolute top-8 w-full px-24']}>
                 <img src={backicon} alt="" className={['']} style={{zIndex: '1'}} />
-                <img src={Logo} alt="" className={['transform scale-90']} />
+                <Link to="/"><img src={Logo} alt="" className={['transform scale-90']} /></Link>
             </div>
             <div className={['w-3/12 mx-auto pt-44']} style={{zIndex : '1000'}}>
                 <div className={['flex justify-center']}>
