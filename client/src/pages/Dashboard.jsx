@@ -11,6 +11,7 @@ import feedbackEmoji4 from '../assets/images/feedbackEmoji-4.svg'
 import feedbackEmoji5 from '../assets/images/feedbackEmoji-5.svg'
 import rangeslider from '../assets/images/rangeslider.svg'
 import feedbacktextarea from '../assets/images/feedbacktextarea.svg'
+import {Link} from 'react-router-dom'
 
 const Dashboard = () => {
     const user = 'null';
@@ -30,21 +31,21 @@ const Dashboard = () => {
         <div className={["flex w-10/12 mx-auto justify-between"]}>
           <img src={Logo} alt="" />
           <ul className={["flex align-center items-center"]}>
-            <li> <a href="#" className={['mx-3 font-light bg-white px-5 py-2 rounded rounded-full text-sm text-gray-500']}>SIGN OUT</a> </li>
-            <li> <a href="#" className={['']}> <img src={HomeUser} alt="" /> </a> </li>
+          <li> <Link to="/" className={['mx-3 font-light bg-white px-5 py-2 rounded rounded-full text-sm text-gray-500']}>SIGN OUT</Link> </li>
+            <li> <Link to="#" className={['']}> <img src={HomeUser} alt="" /> </Link> </li>
           </ul>
         </div>
-        <div className={['mt-16 w-10/12 mx-auto flex']}>
-          <div className={['w-2/5 pr-10']}>
-            <h2 className={['text-9xl font-extrabold text-white leading-0']}>Business <span className={['font-thin mt-0']}>workflow</span></h2>
-            <p className={['text-2xl font-thin text-white mt-10 leading-10']}>
+        <div className={['sm:mt-32 mt-16 w-10/12 mx-auto lg:flex']}>
+          <div className={['xl:w-1/2 lg:w-11/12 xl:pr-10']}>
+            <h2 className={['sm:text-7xl xl:text-8xl font-extrabold text-white leading-0 2xl:text-9xl']}>Business <span className={['font-thin mt-0']}>workflow</span></h2>
+            <p className={['sm:text-xl sm:font-light sm:mt-6 xl:text-xl font-thin text-white xl:mt-10 leading-10']}>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat
               amet aliquam itaque harum accusantium perferendis cum quas
               expedita rerum magnam.
             </p>
           </div>
           <div>
-            <img src={HomeIllustration} alt="" />
+            <img src={HomeIllustration} alt="" className={['hidden lg:block']} />
           </div>
         </div>
       </div>

@@ -12,22 +12,23 @@ import passwordicon from '../assets/images/password-icon.svg';
 import {Link} from 'react-router-dom'
 
 const Signin = ({history}) => {
+    console.log(history)
     return (
         <div>
             <div className={['flex justify-between absolute top-8 w-full px-24']}>
-                <img src={backicon} alt="" className={['']} style={{zIndex: '1'}} />
-                <img src={Logo} alt="" className={['transform scale-90']} />
+                <img src={backicon} alt="" className={['transform sm:scale-75']} style={{zIndex: '1'}} onClick={() => history.goBack()} />
+                <Link to="/"><img src={Logo} alt="" className={['transform scale-90']} /></Link>
             </div>
-            <div className={['w-3/12 mx-auto pt-44']} style={{zIndex : '1000'}}>
+            <div className={['xl:w-3/12 mx-auto pt-44 sm:w-9/12 sm:pt-36 md:pt-52 lg:w-2/4']} style={{zIndex : '1000'}}>
                 <div className={['flex justify-center']}>
-                <img src={Registerusericon} alt="" className={['transform scale-100']} />
+                <img src={Registerusericon} alt="" className={['transform lg:scale-100 sm:scale-50']} />
                 </div>
                 <form className={["mt-8"]}>
-                    <div className={['flex border py-4 px-5 rounded rounded-full mb-14 bg-white']}>
+                    <div className={['flex border xl:py-4 px-5 rounded rounded-full mb-14 bg-white sm:py-3 sm:mb-8']}>
                         <img src={usericon} alt="" className={['mr-5 transform']} />
                         <input type="text" name="" id="" placeholder="Username" className={["bg-transparent w-full focus:outline-none border-0"]} />
                     </div>
-                    <div className={['flex border py-4 px-5 rounded rounded-full mb-10 bg-white opacity-80']}>
+                    <div className={['flex border xl:py-4 px-5 rounded rounded-full mb-10 bg-white opacity-80 sm:py-3 sm:mb-8']}>
                         <img src={passwordicon} alt="" className={['mr-5 transform scale-75']} />
                         <input type="text" name="" id="" placeholder="Password" className={["bg-transparent w-full focus:outline-none border-0"]} />
                     </div>
@@ -35,16 +36,16 @@ const Signin = ({history}) => {
                         <button className={['py-2 px-8 text-sm font-light bg-white border rounded-full']}>SIGN IN</button>
                     </div>
                     <div className={['flex justify-center mt-4']} style={{zIndex : '10000'}}>
-                        <Link to="adminlogin"><button className={['py-2 px-8 mx-4 text-sm font-light text-white border rounded-full cursor-pointer']} onClick={() => console.log('admin')}>ADMIN</button></Link>
-                        <Link to="dashboard"><button className={['py-2 px-8 mx-4 text-sm font-light text-white border rounded-full cursor-pointer']} onClick={() => history.push('dashboard')}>SKIP</button></Link>
+                        <Link to="adminlogin"><button className={['sm:text-gray-600 py-2 px-8 mx-4 text-sm font-light xl:text-white border rounded-full cursor-pointer']} onClick={() => console.log('admin')}>ADMIN</button></Link>
+                        <Link to="dashboard"><button className={['py-2 px-8 mx-4 sm:text-gray-600 text-sm font-light xl:text-white border rounded-full cursor-pointer']} onClick={() => history.push('dashboard')}>SKIP</button></Link>
                     </div>
                 </form>
             </div>
             <img src={loginbg} alt="" className={['-mt-16 absolute top-0 object-fit']} style={{zIndex: '-1'}} />
-            <img src={RegisterLeftIcon} alt="" className={['absolute transform scale-90 -left-10']} style={{top : '100px', zIndex: '1'}} />
-            <img src={loginrunnning} alt="" className={['absolute transform scale-90 right-32']} style={{top : '230px', zIndex: '0'}} />
+            <img src={RegisterLeftIcon} alt="" className={['absolute transform scale-90 -left-10 hidden xl:block']} style={{top : '100px', zIndex: '1'}} />
+            <img src={loginrunnning} alt="" className={['absolute transform scale-90 right-32 hidden xl:block']} style={{top : '230px', zIndex: '0'}} />
             <div className={['flex justify-center']} style={{zIndex : '-1000'}}>
-                <img src={Logo} alt="" className={['mt-32']} />
+                <img src={Logo} alt="" className={['xl:mt-32 sm:mt-12']} />
             </div>
         </div>
     )
