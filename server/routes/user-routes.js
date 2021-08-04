@@ -7,7 +7,10 @@ const keys = require("../config/keys");
 const fetch=require("node-fetch")
 const {OAuth2Client}=require("google-auth-library");
 const client= new OAuth2Client(keys.google.clientID)
-
+const confirmEmail=require("../controllers/index")
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
+const Token =require("../models/token");
 
 router.post(
     "/signup",
@@ -42,16 +45,52 @@ router.post(
 
             const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(password, salt);
-              await user.save()
-              res.status(200).json({
-                             message: "registered"
+            user.save(function (err) {
+              if (err) { 
+                return res.status(500).send({msg:err.message});
+              }
+              
+              // generate token and save
+              var token = new Token({ _userId: user._id, token: crypto.randomBytes(16).toString('hex') });
+              token.save(function (err) {
+                if(err){
+                  return res.status(500).send({msg:err.message});
+                }
+  
+                  // Send email (use verified sender's email address & generated API_KEY on SendGrid)
+                  // const transporter = nodemailer.createTransport(
+                  //   sendgridTransport({
+                  //       auth:{
+                  //           api_key:SENDGRID_APIKEY,
+                  //       }
+                  //   })
+                  // )
+
+                  // send email from your gmail account
+                  const smtpTransport = nodemailer.createTransport({
+                    service: "Gmail",
+                    auth: {
+                        user: "write your email",
+                        pass: "your password"
+                    }
+                });
+                  var mailOptions = { from: 'mailtosonam123@gmail.com', to: user.email, subject: 'Account Verification Link', text: 'Hello '+ req.body.name +',\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + user.email + '\/' + token.token + '\n\nThank You!\n' };
+                  smtpTransport.sendMail(mailOptions, function (err) {
+                      if (err) { 
+                          return res.status(500).send({msg:'Technical Issue!, Please click on resend for verify your Email.'});
+                       }
+                      return res.status(200).send('A verification email has been sent to ' + user.email + '. It will be expire after one day. If you not get verification Email click on resend token.');
+                  });
               });
+            });
         } catch (err) {
             console.log(err.message);
             res.status(500).send("Error in Saving");
         }
     }
 );
+
+router.get('/confirmation/:email/:token',confirmEmail)
 
 
 router.post(
