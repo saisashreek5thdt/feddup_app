@@ -17,7 +17,7 @@ import twitter from '../assets/images/twitter.svg'
 
 import {Link} from 'react-router-dom'
 
-const Register = () => {
+const Forgotpassword = () => {
     return (
         <div className={['h-screen overflow-hidden']}>
             <div className={['relative']}>
@@ -30,24 +30,13 @@ const Register = () => {
                 <img src={Registerusericon} alt="" className={['sm:scale-50 transform lg:scale-75']} />
                 </div>
                 <form className={[""]}>
-                    <div className={['flex border py-4 px-5 rounded rounded-full mb-10 sm:py-2 sm:mb-6 lg:py-3 lg:mb-8 2xl:py-4']}>
-                        <img src={usericon} alt="" className={['mr-5 transform']} />
-                        <input type="text" name="" id="" placeholder="Fullname" className={["bg-transparent w-full focus:outline-none border-0"]} />
-                    </div>
+                    <p className={['text-pink-400 text-center mb-3 mt-8']}>Enter Your Email To Reset Password.</p>
                     <div className={['flex border py-4 px-5 rounded rounded-full mb-10 sm:py-2 sm:mb-6 lg:py-3 lg:mb-8 2xl:py-4']}>
                         <img src={emailicon} alt="" className={['mr-5 transform scale-75']} />
-                        <input type="text" name="" id="" placeholder="Email" className={["bg-transparent w-full focus:outline-none border-0"]} />
-                    </div>
-                    <div className={['flex border py-4 px-5 rounded rounded-full mb-10 sm:py-2 sm:mb-6 lg:py-3 lg:mb-8 2xl:py-4']}>
-                        <img src={passwordicon} alt="" className={['mr-5 transform scale-75']} />
-                        <input type="text" name="" id="" placeholder="Password" className={["bg-transparent w-full focus:outline-none border-0"]} />
-                    </div>
-                    <div className={['flex border py-4 px-5 rounded rounded-full mb-10 sm:py-2 sm:mb-6 lg:py-3 lg:mb-8 2xl:py-4']}>
-                        <img src={passwordicon} alt="" className={['mr-5 transform scale-75']} />
-                        <input type="text" name="" id="" placeholder="Re-Password" className={["bg-transparent w-full focus:outline-none border-0"]} />
+                        <input type="email" name="" id="" placeholder="Email" className={["bg-transparent w-full focus:outline-none border-0"]} />
                     </div>
                     <div className={['flex justify-center mt-16 sm:mt-8']}>
-                        <button className={['py-2 px-8 text-sm font-light border rounded-full']}>SIGN IN</button>
+                        <button className={['py-3 px-8 text-sm font-normal text-gray-700 hover:text-gray-100 hover:bg-pink-400 transition all .5s    shadow-lg border rounded-full']}>SEND PASSWORD RESET LINK.</button>
                     </div>
                 </form>
             </div>
@@ -55,16 +44,9 @@ const Register = () => {
             <img src={RegisterLeftIcon} alt="" className={['absolute transform scale-90 -left-10 hidden lg:block lg:scale-75 lg:-left-52 2xl:scale-90 2xl:-left-10']} style={{top : '300px', zIndex: '-1'}} />
             <img src={RegisterRightOne} alt="" className={['absolute transform scale-90 right-10 hidden lg:block lg:scale-75 lg:right-0 2xl:scale-90 2xl:right-10']} style={{top : '300px', zIndex: '-1'}} />
             <img src={RegisterRightTwo} alt="" className={['absolute transform scale-90 -right-10 hidden lg:block lg:scale-75 lg:-right-20 2xl:scale-90 2xl:right-10']} style={{top : '300px', zIndex: '-1'}} />
-            <div className={["flex justify-center pt-16 pb-12 sm:pt-12 lg:pt-16 2xl:pt-32"]}>
-                <img src={facebook} alt="" className={['transform lg:scale-75 sm:scale-50']} />
-                <img src={instagram} alt="" className={['transform lg:scale-75 sm:scale-50']} />
-                <img src={googleplus} alt="" className={['transform lg:scale-75 sm:scale-50']} />
-                <img src={linkedin} alt="" className={['transform lg:scale-75 sm:scale-50']} />
-                <img src={twitter} alt="" className={['transform lg:scale-75 sm:scale-50']} />
-            </div>
         </div>
         </div>
     )
 }
 
-export default Register
+export default Forgotpassword
