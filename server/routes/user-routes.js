@@ -220,6 +220,37 @@ router.post(
       //       })
       //     }
       })
+      router.post("/twitterlogin", 
+      async(req,res)=>{
+        const{newData}=req.body
+        
+        console.log("data",newData)
+        const {email}=newData
+        console.log(email)
+            let user= await Users.findOne({email})
+            if(user){
+              const token = jwt.sign({ user }, keys.token.TOKEN_SECRET);
+                const {fullName,email,_id}=user
+                res.json({
+                  token:token,
+                  user:{_id,fullName,email}
+                })
+            }else{
+              console.log("data",newData)
+              console.log("email",newData.email)
+              let password=newData.email+keys.token.TOKEN_SECRET
+                newUser=new Users({fullName:newData.email, email:newData.email, password:password})
+                const salt = await bcrypt.genSalt(10);
+                newUser.password = await bcrypt.hash(password, salt);
+                await newUser.save()
+                const token = jwt.sign({newUser }, keys.token.TOKEN_SECRET);
+                const {fullName, email, _id}=newUser
+              res.json({
+                token:token,
+                user:{fullName, email, _id}
+              })
+            }
+        })
   
     
 module.exports = router;
