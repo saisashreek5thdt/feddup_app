@@ -15,19 +15,15 @@ const UserSchema = mongoose.Schema({
   },
   ipAddress:{
     type:String,
-    required:true
   },
   os:{
     type:String,
-    required:true
   },
   network:{
     type:String,
-    required:true
   },
   browser:{
     type:String,
-    required:true
   }
   },
   { timestamps: true }
